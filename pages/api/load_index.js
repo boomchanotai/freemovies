@@ -27,7 +27,7 @@ module.exports = async (req, res) => {
       });
     res.send(out);
   } else {
-    const _res = await axios.get("https://movie285.com/" + req.body.page);
+    const _res = await axios.get("https://movie285.com/page/" + req.body.page);
     const dom = new jsdom.JSDOM(_res.data);
     let out = [];
     dom.window.document

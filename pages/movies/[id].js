@@ -35,7 +35,7 @@ const Movies = ({ URL, name, synopsis }) => {
 
 Movies.getInitialProps = async ({ query }) => {
 
-    const data = await axios.post("https://freemovies.centos.vercel.app/api/get_video", {
+    const data = await axios.post("/api/get_video", {
             movie: query.id
         })
         .catch(err => console.error(err))
