@@ -1,9 +1,52 @@
+@font-face{
+  font-family: 'Roboto';
+  font-weight: normal;
+  src: local('Roboto-Regular'),
+  url(./fonts/Roboto/Roboto-Regular.ttf) format('truetype');
+}
+
+@font-face{
+  font-family: 'Roboto';
+  font-weight: bold;
+  src: local('Roboto-Bold'),
+  url(./fonts/Roboto/Roboto-Bold.ttf) format('truetype');
+}
+
+@font-face{
+  font-family: 'Roboto';
+  font-weight: lighter;
+  src: local('Roboto-Light'),
+  url(./fonts/Roboto/Roboto-Light.ttf) format('truetype');
+}
+
+@font-face{
+  font-family: 'SukhumvitSet';
+  font-weight: normal;
+  src: local('SukhumvitSet-Text'),
+  url(./fonts/sukhumvit-set/SukhumvitSet-Text.ttf) format('truetype');
+}
+
+@font-face{
+  font-family: 'SukhumvitSet';
+  font-weight: bold;
+  src: local('SukhumvitSet-Bold'),
+  url(./fonts/sukhumvit-set/SukhumvitSet-Bold.ttf) format('truetype');
+}
+
+@font-face{
+  font-family: 'SukhumvitSet';
+  font-weight: lighter;
+  src: local('SukhumvitSet-Light'),
+  url(./fonts/sukhumvit-set/SukhumvitSet-Light.ttf) format('truetype');
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'SukhumvitSet', Helvetica Neue, sans-serif;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 a {

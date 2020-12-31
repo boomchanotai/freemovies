@@ -4,12 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start"
   },
   "dependencies": {
+    "axios": "^0.21.1",
+    "dom-parser": "^0.1.6",
+    "jsdom": "^16.4.0",
     "next": "10.0.4",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "window-or-global": "^1.0.1"
   }
 }
