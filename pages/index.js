@@ -59,13 +59,13 @@ const Home = ({ movielist, pagelist }) => {
 }
 
 Home.getInitialProps = async () => {
-  const res = await axios.post('http://localhost:3000/api/load_index', { page : 1 })
+  // const res = await axios.post('http://localhost:3000/api/load_index', { page : 1 })
 
-  const res1 = await axios.post('http://localhost:3000/api/get_pagelist')
+  // const res1 = await axios.post('http://localhost:3000/api/get_pagelist')
 
-  // const res = await axios.post('https://freemovies.centos.vercel.app/api/load_index', { page : 1 })
+  const res = await axios.post('https://freemovies.centos.vercel.app/api/load_index', { page : 1 })
 
-  // const res1 = await axios.post('https://freemovies.centos.vercel.app/api/get_pagelist')
+  const res1 = await axios.post('https://freemovies.centos.vercel.app/api/get_pagelist')
 
   return {
     movielist : res.data,
