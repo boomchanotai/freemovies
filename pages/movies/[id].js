@@ -35,7 +35,11 @@ const Movies = ({ URL, name, synopsis }) => {
 
 Movies.getInitialProps = async ({ query }) => {
 
-    const data = await axios.post("https://cors-anywhere.herokuapp.com/https://freemovies.centos.vercel.app/api/get_video", {
+    const data = await axios.post("https://cors-anywhere.herokuapp.com/https://freemovies.centos.vercel.app/api/get_video", 
+        {
+            headers: { "Access-Control-Allow-Origin": "*" }
+        },
+        {
             movie: query.id
         })
         .catch(err => console.error(err))
