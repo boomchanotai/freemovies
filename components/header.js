@@ -13,10 +13,10 @@ const Header = () => {
             </Head>
             <div className={styles.navbar}>
                 <div>
-                    <div style={{ cursor : 'pointer'}} onClick={() => Router.push("/")}><img src="/logo.png" alt=""/></div>
+                    <div style={{ cursor : 'pointer'}} onClick={() => window.location.href = "/"}><img src="/logo.png" alt=""/></div>
                     <div>
                     <ul>
-                        <li onClick={() => Router.push("/")}>หน้าหลัก</li>
+                        <li onClick={() => window.location.href = "/"}>หน้าหลัก</li>
                         <li>รายการทีวี</li>
                         <li>ภาพยนตร์</li>
                         <li>มาใหม่และกำลังฮิต</li>
