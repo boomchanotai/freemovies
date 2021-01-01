@@ -13,4 +13,5 @@ module.exports = async (req, res) => {
     
     // res.send({ pagelist : dom.window.document.querySelectorAll(".page-numbers") });
     res.send(out);
+    res.end();
 };

@@ -61,16 +61,6 @@ const Home = ({ movielist, pagelist }) => {
         <div className="page" key={pagelist} onClick={() => handleChangePage(pagelist)}>{pagelist}</div>
       )
   }
-
-  // if (pagelist > 6) {
-  //   pageChanger.push(
-  //       <div className="pageDot" key={"PageDot"}>.....</div>
-  //   )
-
-  //   pageChanger.push(
-  //       <div className="page" key={pagelist} onClick={() => handleChangePage(pagelist)}>{pagelist}</div>
-  //   )
-  // }  
   
   return (
       <div className={styles.container}>
@@ -96,7 +86,7 @@ const Home = ({ movielist, pagelist }) => {
 }
 
 Home.getInitialProps = async () => {
-  // const res = await axios.post('http://localhost:3000/api/load_index', { page : 1 })
+  // const res = await axios.post("http://localhost:3000/api/load_index", { page : 1 })
 
   // const res1 = await axios.post('http://localhost:3000/api/get_pagelist')
 

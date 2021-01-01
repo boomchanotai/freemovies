@@ -11,10 +11,10 @@ const Header = () => {
             </Head>
             <div className={styles.navbar}>
                 <div>
-                    <div style={{ cursor : 'pointer'}}><Link href="/"><img src="/logo.png" alt=""/></Link></div>
+                    <div style={{ cursor : 'pointer'}}><Link href="/"><a><img src="/logo.png" alt=""/></a></Link></div>
                     <div>
                     <ul>
-                        <Link href="/"><li>หน้าหลัก</li></Link>
+                        <Link href="/"><a><li>หน้าหลัก</li></a></Link>
                         <li>รายการทีวี</li>
                         <li>ภาพยนตร์</li>
                         <li>มาใหม่และกำลังฮิต</li>
