@@ -11,7 +11,8 @@ const Home = ({ movielist, pagelist }) => {
   const [movies, setMovies] = useState(movielist);
 
   const handleChangePage = async (pageNumber) => {
-    const res = await axios.post('http://localhost:3000/api/load_index', { page : pageNumber })
+    // const res = await axios.post('http://localhost:3000/api/load_index', { page : pageNumber })
+    const res = await axios.post('https://freemovies.centos.vercel.app/api/load_index', { page : pageNumber })
     setMovies(res.data)
   }
 
