@@ -2,6 +2,8 @@ import Head from 'next/head'
 import styles from '../styles/Header.module.css'
 import Link from 'next/link'
 
+import Router from 'next/router'
+
 const Header = () => {
     return(
         <div>
@@ -11,10 +13,10 @@ const Header = () => {
             </Head>
             <div className={styles.navbar}>
                 <div>
-                    <div style={{ cursor : 'pointer'}}><Link href="/"><a><img src="/logo.png" alt=""/></a></Link></div>
+                    <div style={{ cursor : 'pointer'}} onClick={() => Router.push("/")}><img src="/logo.png" alt=""/></div>
                     <div>
                     <ul>
-                        <Link href="/"><a><li>หน้าหลัก</li></a></Link>
+                        <li onClick={() => Router.push("/")}>หน้าหลัก</li>
                         <li>รายการทีวี</li>
                         <li>ภาพยนตร์</li>
                         <li>มาใหม่และกำลังฮิต</li>
