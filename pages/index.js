@@ -9,32 +9,68 @@ import Header from '../components/header';
 const Home = ({ movielist, pagelist }) => {
 
   const [movies, setMovies] = useState(movielist);
+  const [page, setPage] = useState(1);
+
+  const [startPage, setStartPage] = useState((page - 3 <= 0) ? 1 : page - 3)
+  const [endPage, setEndPage] = useState((page - 3 <= 0) ? (page + 4) - (page - 4) : ((page + 4) > pagelist) ? pagelist : page +4)
 
   const handleChangePage = async (pageNumber) => {
-    // const res = await axios.post('http://localhost:3000/api/load_index', { page : pageNumber })
-    const res = await axios.post('https://freemovies.centos.vercel.app/api/load_index', { page : pageNumber })
+    const res = await axios.post('/api/load_index', { page : pageNumber })
+    // const res = await axios.post('https://freemovies.centos.vercel.app/api/load_index', { page : pageNumber })
     setMovies(res.data)
+    setPage(pageNumber)
+    setStartPage((pageNumber - 3 <= 0) ? 1 : pageNumber - 3)
+    setEndPage((pageNumber - 3 <= 0) ? (pageNumber + 4) - (pageNumber - 4) : ((pageNumber + 4) > pagelist) ? pagelist : pageNumber +4)
   }
 
   let pageChanger = [];
 
-  for (let index = 1; index < ((pagelist > 6 ) ? 6 : pagelist); index++) {
-    
+  if (startPage > 1) {
     pageChanger.push(
-      <div className="page" key={index} onClick={() => handleChangePage(index)}>{index}</div>
+      <div className="page" key="1" onClick={() => handleChangePage(1)}>1</div>
     )
+    if (startPage > 2) {
+      pageChanger.push(
+        <div className="pageDot" key="dotAfter1">&#183;&#183;&#183;&#183;&#183;</div>
+      )
+    }
+  }
+
+  for (let index = startPage; index < endPage; index++) {
+
+    if (index === page) {
+      pageChanger.push(
+        <div className="page page-active" key={index} onClick={() => handleChangePage(index)}>{index}</div>
+      )
+    } else {
+      pageChanger.push(
+        <div className="page" key={index} onClick={() => handleChangePage(index)}>{index}</div>
+      )
+    }
     
   }
 
-  if (pagelist > 6) {
-    pageChanger.push(
-        <div className="pageDot" key={"PageDot"}>.....</div>
-    )
-
+  if (endPage <= pagelist) {
+    if (endPage != pagelist) {
+      pageChanger.push(
+          <div className="pageDot" key="dotBeforeLast">&#183;&#183;&#183;&#183;&#183;</div>
+      )
+    }
+    
     pageChanger.push(
         <div className="page" key={pagelist} onClick={() => handleChangePage(pagelist)}>{pagelist}</div>
-    )
-  }  
+      )
+  }
+
+  // if (pagelist > 6) {
+  //   pageChanger.push(
+  //       <div className="pageDot" key={"PageDot"}>.....</div>
+  //   )
+
+  //   pageChanger.push(
+  //       <div className="page" key={pagelist} onClick={() => handleChangePage(pagelist)}>{pagelist}</div>
+  //   )
+  // }  
   
   return (
       <div className={styles.container}>
