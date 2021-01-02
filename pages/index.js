@@ -70,7 +70,7 @@ const Home = ({ movielist, pagelist }) => {
           <div className={styles.items}>
             {
               movies.map(({ title, pic, href }) => (
-                <div key={title} className={styles.item} style={{ backgroundImage : `url('${pic}')` }} onClick={() => Router.push(encodeURI("/movies/" + href))}>
+                <div key={title} className={styles.item} style={{ backgroundImage : `url('${pic}')` }} onClick={() => window.location.href = encodeURI("/movies/" + href)}>
                   <div></div>
                   <div className={styles.itemDescription}><div>{title}</div></div>
                 </div>
