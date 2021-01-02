@@ -77,3 +77,11 @@ a {
 .page-active {
   background-color: #c1c1c1;
 }
+
+.searchItem {
+  display: none;
+}
+
+.searchItem:nth-child(-n+10){
+  display:block;
+}

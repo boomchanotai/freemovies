@@ -35,7 +35,6 @@
 .navbar ul li {
     display: inline;
     padding: 0px 10px;
-    font-size: 0.8em;
     font-weight: bold;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
@@ -43,4 +42,9 @@
   
 .navbar ul li:hover {
     color: #999999;
+}
+
+.searchbar{
+    margin-top: 100px;
+    z-index: 10000;
 }

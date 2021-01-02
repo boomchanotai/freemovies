@@ -1,6 +1,4 @@
-import axios from 'axios';
 import Router from 'next/router';
-
 import Header from '../../components/header';
 
 import styles from '../../styles/Home.module.css'
@@ -34,7 +32,7 @@ const Movies = ({ URL, name, synopsis }) => {
 }
 
 Movies.getInitialProps = async ({ query }) => {
-
+    const axios = await import('axios');
     // const data = await axios.post("http://localhost:4000/api/get_video", {
     const data = await axios.post("https://freemovies.centos.vercel.app/api/get_video", {
             movie: query.id
@@ -44,7 +42,7 @@ Movies.getInitialProps = async ({ query }) => {
     return { 
         URL : (data) ? data.data.src : null,
         name : (data) ? data.data.title : null,
-        synopsis : (data) ? data.data.synopsis : null
+        synopsis : (data) ? data.data.synopsis : null,
     }
     
 }

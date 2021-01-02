@@ -2,9 +2,16 @@ import Head from 'next/head'
 import styles from '../styles/Header.module.css'
 import Link from 'next/link'
 
+import { useState } from 'react';
+
+import Autocomplete from 'react-autocomplete'
+
 import Router from 'next/router'
 
-const Header = () => {
+const Header = ({ movielist }) => {
+
+    const [value, setValue] = useState("");
+
     return(
         <div>
             <Head>
@@ -24,6 +31,25 @@ const Header = () => {
                     </ul>
                     </div>
                 </div>
+            </div>
+            <div className={styles.searchbar}>
+                <Autocomplete
+                    items={movielist}
+                    shouldItemRender={(item, value) => item.title.toLowerCase().indexOf(value.toLowerCase()) > -1}
+                    getItemValue={item => item.title}
+                    renderItem={(item, highlighted) =>
+                        <div
+                            key={item.title}
+                            style={{ backgroundColor: highlighted ? '#000000' : '#777777'}}
+                            className="searchItem"
+                        >
+                            {item.title}
+                        </div>
+                    }
+                    value={value}
+                    onChange={e => setValue(e.target.value)}
+                    onSelect={value => setValue(value)}
+                />
             </div>
         </div>
     )
