@@ -1,6 +1,5 @@
 const axios = require("axios");
 const jsdom = require("jsdom");
-const { async } = require("window-or-global");
 module.exports = async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   const _res = await axios.get(
