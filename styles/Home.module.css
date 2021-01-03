@@ -90,3 +90,11 @@
   margin: 40px auto;
   text-align: center;
 }
+
+.loading {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

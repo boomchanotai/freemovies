@@ -6,7 +6,9 @@ import { useState } from 'react';
 
 import Autocomplete from 'react-autocomplete'
 
-const Header = ({ movielist }) => {
+import movies from '../movie.json';
+
+const Header = () => {
 
     const [value, setValue] = useState("");
 
@@ -32,7 +34,7 @@ const Header = ({ movielist }) => {
                     </div>
                     <div>
                         <Autocomplete
-                            items={movielist}
+                            items={movies.movie}
                             wrapperStyle={{
                                 display: 'block',
                                 width: '100%'

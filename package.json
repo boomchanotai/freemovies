@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev -- -p 4000",
     "build": "yarn cache:index && next build",
+    "build:build" : "next build",
     "start": "next start",
     "analyze": "cross-env ANALYZE=true yarn build",
     "cache:index": "node ./src/cacheIndex"
