@@ -51,8 +51,8 @@ const Movies = ({ id }) => {
                             mozallowfullscreen="true">
                         </iframe>
                     </div>
-                    <div>
-                        <h1>{ movie.name }</h1>
+                    <div className={styles.videoContent}>
+                        <h1>{ movie.title }</h1>
                         <div style={{ textIndent : '1.8em' }}>{ movie.synopsis }</div>
                     </div>
                 </div>

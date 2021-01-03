@@ -22,13 +22,10 @@ const Header = () => {
                 <div>
                     <div>
                         <div style={{ cursor : 'pointer'}} onClick={() => window.location.href = "/"}><img src="/logo.png" alt=""/></div>
-                        <div>
+                        <div className={styles.nav}>
                             <ul>
                                 <li onClick={() => window.location.href = "/"}>หน้าหลัก</li>
-                                <li>รายการทีวี</li>
-                                <li>ภาพยนตร์</li>
-                                <li>มาใหม่และกำลังฮิต</li>
-                                <li>รายการของฉัน</li>
+                                <li onClick={() => window.location.href = "/"}>ภาพยนตร์</li>
                             </ul>
                         </div>
                     </div>
