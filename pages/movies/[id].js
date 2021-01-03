@@ -13,7 +13,7 @@ const Movies = ({ id }) => {
         
         const axios = await import('axios');
         
-        const data = await axios.post("http://localhost:4000/api/get_video", { movie: id }).catch(err => console.error(err))
+        const data = await axios.post("/api/get_video", { movie: id }).catch(err => console.error(err))
         
         setMovie(data.data);
     }, [])
