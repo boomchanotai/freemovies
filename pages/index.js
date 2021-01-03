@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
@@ -88,7 +87,7 @@ const Home = ({ movielist, pagelist }) => {
     )
 }
 
-Home.getInitialProps = async () => {
+Home.getInitialProps = () => {
 
   return {
     movielist : movies.movie,
