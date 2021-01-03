@@ -6,8 +6,6 @@ import { useState } from 'react';
 
 import Autocomplete from 'react-autocomplete'
 
-import Router from 'next/router'
-
 const Header = ({ movielist }) => {
 
     const [value, setValue] = useState("");
@@ -20,36 +18,58 @@ const Header = ({ movielist }) => {
             </Head>
             <div className={styles.navbar}>
                 <div>
-                    <div style={{ cursor : 'pointer'}} onClick={() => window.location.href = "/"}><img src="/logo.png" alt=""/></div>
                     <div>
-                    <ul>
-                        <li onClick={() => window.location.href = "/"}>หน้าหลัก</li>
-                        <li>รายการทีวี</li>
-                        <li>ภาพยนตร์</li>
-                        <li>มาใหม่และกำลังฮิต</li>
-                        <li>รายการของฉัน</li>
-                    </ul>
+                        <div style={{ cursor : 'pointer'}} onClick={() => window.location.href = "/"}><img src="/logo.png" alt=""/></div>
+                        <div>
+                            <ul>
+                                <li onClick={() => window.location.href = "/"}>หน้าหลัก</li>
+                                <li>รายการทีวี</li>
+                                <li>ภาพยนตร์</li>
+                                <li>มาใหม่และกำลังฮิต</li>
+                                <li>รายการของฉัน</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <Autocomplete
+                            items={movielist}
+                            wrapperStyle={{
+                                display: 'block',
+                                width: '100%'
+                            }}
+                            shouldItemRender={(item, value) => item.title.toLowerCase().indexOf(value.toLowerCase()) > -1}
+                            getItemValue={item => item.title}
+                            renderItem={(item, highlighted) =>
+                                <div
+                                    key={item.title}
+                                    style={{ backgroundColor: highlighted ? '#313131' : '#777777'}}
+                                    className="searchItem"
+                                >
+                                    {item.title}
+                                </div>
+                            }
+                            menuStyle={{
+                                borderRadius: '0px',
+                                boxShadow: '5px 5px 25px -10px rgba(0,0,0,0.5)',
+                                background: 'none',
+                                padding: '0',
+                                fontSize: '0.9em',
+                                position: 'fixed',
+                                overflow: 'auto',
+                                maxHeight: '50%',
+                            }}
+                            value={value}
+                            onChange={e => setValue(e.target.value)}
+                            onSelect={(value, item) => {
+                                setValue(value);
+                                window.location.href = encodeURI("/movies/" + item.href)
+                            }}
+                            inputProps={{
+                                placeholder : "Search | ค้นหา"
+                            }}
+                        />
                     </div>
                 </div>
-            </div>
-            <div className={styles.searchbar}>
-                <Autocomplete
-                    items={movielist}
-                    shouldItemRender={(item, value) => item.title.toLowerCase().indexOf(value.toLowerCase()) > -1}
-                    getItemValue={item => item.title}
-                    renderItem={(item, highlighted) =>
-                        <div
-                            key={item.title}
-                            style={{ backgroundColor: highlighted ? '#000000' : '#777777'}}
-                            className="searchItem"
-                        >
-                            {item.title}
-                        </div>
-                    }
-                    value={value}
-                    onChange={e => setValue(e.target.value)}
-                    onSelect={value => setValue(value)}
-                />
             </div>
         </div>
     )

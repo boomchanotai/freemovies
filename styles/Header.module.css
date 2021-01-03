@@ -7,15 +7,20 @@
     color: #ffffff;
     z-index: 100000;
 }
-  
+
 .navbar > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+  
+.navbar > div > div {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 10px 40px;
 }
   
-.navbar > div > div:first-child {
+.navbar > div > div:first-child > div:first-child {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,7 +49,12 @@
     color: #999999;
 }
 
-.searchbar{
-    margin-top: 100px;
-    z-index: 10000;
+.navbar > div > div:last-child input{
+    background: none;
+    outline: none;
+    border: none;
+    background-color: #313131;
+    color: #ffffff;
+    padding: 10px 20px;
+    width: 100%;
 }

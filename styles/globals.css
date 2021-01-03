@@ -55,6 +55,7 @@ a {
 }
 
 * {
+  font-family: 'SukhumvitSet', Helvetica Neue, sans-serif;
   box-sizing: border-box;
 }
 
@@ -80,8 +81,10 @@ a {
 
 .searchItem {
   display: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .searchItem:nth-child(-n+10){
-  display:block;
+  display: block;
 }
